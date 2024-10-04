@@ -1,0 +1,72 @@
+attrs==24.2.0
+azure-ai-ml==1.20.0
+azure-common==1.1.28
+azure-core==1.31.0
+azure-identity==1.18.0
+azure-mgmt-core==1.4.0
+azure-storage-blob==12.23.1
+azure-storage-file-datalake==12.17.0
+azure-storage-file-share==12.18.0
+Brotli @ file:///croot/brotli-split_1714483155106/work
+cachetools==5.5.0
+certifi @ file:///croot/certifi_1725551672989/work/certifi
+cffi==1.17.1
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+colorama==0.4.6
+cryptography==43.0.1
+filelock @ file:///croot/filelock_1700591183607/work
+gmpy2 @ file:///tmp/build/80754af9/gmpy2_1645455533097/work
+google-api-core==2.20.0
+google-auth==2.35.0
+googleapis-common-protos==1.65.0
+idna @ file:///croot/idna_1714398848350/work
+isodate==0.6.1
+Jinja2 @ file:///croot/jinja2_1716993405101/work
+jsonschema==4.23.0
+jsonschema-specifications==2023.12.1
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+marshmallow==3.22.0
+mkl-service==2.4.0
+mkl_fft @ file:///croot/mkl_fft_1725370245198/work
+mkl_random @ file:///croot/mkl_random_1725370241878/work
+mpmath @ file:///croot/mpmath_1690848262763/work
+msal==1.31.0
+msal-extensions==1.2.0
+msrest==0.7.1
+networkx @ file:///croot/networkx_1717597493534/work
+numpy @ file:///croot/numpy_and_numpy_base_1725470312869/work/dist/numpy-2.0.1-cp310-cp310-linux_x86_64.whl#sha256=120568f3fd675f59e4cb6de79a5c193b4067d90878d8bab2040fda8e3a2df6fa
+oauthlib==3.2.2
+opencensus==0.11.4
+opencensus-context==0.1.3
+opencensus-ext-azure==1.1.13
+opencensus-ext-logging==0.1.1
+packaging==24.1
+pillow @ file:///croot/pillow_1721059439630/work
+portalocker==2.10.1
+proto-plus==1.24.0
+protobuf==5.28.2
+psutil==6.0.0
+pyasn1==0.6.1
+pyasn1_modules==0.4.1
+pycparser==2.22
+pydash==8.0.3
+PyJWT==2.9.0
+PySocks @ file:///home/builder/ci_310/pysocks_1640793678128/work
+python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
+PyYAML @ file:///croot/pyyaml_1698096049011/work
+referencing==0.35.1
+requests @ file:///croot/requests_1721410876868/work
+requests-oauthlib==2.0.0
+rpds-py==0.20.0
+rsa==4.9
+six==1.16.0
+strictyaml==1.7.3
+sympy @ file:///croot/sympy_1724938189289/work
+torch==2.2.2
+torchaudio==2.2.2
+torchvision==0.17.2
+tqdm==4.66.5
+triton==2.2.0
+typing_extensions @ file:///croot/typing_extensions_1715268824938/work
+urllib3 @ file:///croot/urllib3_1727769808118/work
