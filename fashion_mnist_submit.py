@@ -34,9 +34,9 @@ print(ws.location, ":", ws.resource_group)
 
 # %%
 job = command(
-    code="./fashion_mnist",  # location of source code
+    code="./fashion_mnist/src",  # location of source code
     command="python train.py",
-    environment="fashion_mnist@latest",
+    environment="torch-cuda-fashionmnist@latest",
     display_name="fashion_mnist_job",
 )
 

@@ -122,7 +122,7 @@ print("Training complete.")
 
 # %%
 # Save the model
-SAVE_PATH = "saved_models"
+SAVE_PATH = "./output"
 os.makedirs(SAVE_PATH, exist_ok=True)
 torch.save(model.state_dict(), os.path.join(SAVE_PATH, "fashion_mnist_model.pth"))
 
