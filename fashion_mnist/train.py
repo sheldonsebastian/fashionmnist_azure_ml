@@ -10,7 +10,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 # %%
-print(torch.cuda.is_available())
+print("GPU found:", torch.cuda.is_available())
 
 # %%
 # Change directory to the current file directory
