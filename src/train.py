@@ -12,10 +12,6 @@ import torch.optim as optim
 # %%
 print("GPU found:", torch.cuda.is_available())
 
-# %%
-# Change directory to the current file directory
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
 
 # %%
 # Define a simple neural network
@@ -33,7 +29,6 @@ class SimpleNN(nn.Module):
 
 
 # %%
-# Load Fashion MNIST dataset
 transform = transforms.Compose(
     [transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))]
 )
@@ -82,6 +77,11 @@ class FashionMNISTFromUbyte(VisionDataset):
 
 
 # %%
+# dowlnoad the dataset to data directory
+os.makedirs("data", exist_ok=True)
+
+
+# %%
 # Load dataset from ubyte and ubyte.gz files
 train_dataset = FashionMNISTFromUbyte(
     root=r"data",
@@ -124,6 +124,8 @@ print("Training complete.")
 # Save the model
 SAVE_PATH = "./output"
 os.makedirs(SAVE_PATH, exist_ok=True)
-torch.save(model.state_dict(), os.path.join(SAVE_PATH, "fashion_mnist_model.pth"))
+model_save_path = os.path.join(SAVE_PATH, "fashion_mnist_model.pth")
+torch.save(model.state_dict(), model_save_path)
 
 # %%
+print("Model saved in {model_save_path}")
