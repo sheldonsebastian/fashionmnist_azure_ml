@@ -84,7 +84,7 @@ class FashionMNISTFromUbyte(VisionDataset):
 # %%
 # Load dataset from ubyte and ubyte.gz files
 train_dataset = FashionMNISTFromUbyte(
-    root=r"data\FashionMNIST\raw",
+    root=r"data",
     transform=transform,
 )
 
@@ -92,9 +92,6 @@ train_dataset = FashionMNISTFromUbyte(
 train_loader = torch.utils.data.DataLoader(
     dataset=train_dataset, batch_size=64, shuffle=True
 )
-
-# %%
-batch_image, batch_label = next(iter(train_loader))
 
 # %%
 # Initialize the network, loss function and optimizer

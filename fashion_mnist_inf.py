@@ -6,7 +6,7 @@ import numpy as np
 import torch.nn as nn
 
 # %%
-SAVED_MODEL_PATH = r"fashion_mnist\saved_models\fashion_mnist_model.pth"
+SAVED_MODEL_PATH = "fashion_mnist/saved_models/fashion_mnist_model.pth"
 
 
 # %%
@@ -52,7 +52,7 @@ model.eval()
 
 # %%
 # Load Fashion MNIST dataset
-image, label = load_data(r"fashion_mnist\data\FashionMNIST\raw", train=False)
+image, label = load_data(r"fashion_mnist/data", train=False)
 
 # %% make predictions
 # Convert images to tensor
