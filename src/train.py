@@ -1,3 +1,4 @@
+# https://github.com/Azure/azureml-examples/blob/main/tutorials/get-started-notebooks/quickstart.ipynb
 # %%
 import torch
 from torchvision import transforms
@@ -77,9 +78,8 @@ class FashionMNISTFromUbyte(VisionDataset):
 
 
 # %%
-# dowlnoad the dataset to data directory
-os.makedirs("data", exist_ok=True)
-
+# mount dataset
+# TODO:https://learn.microsoft.com/en-us/azure/machine-learning/how-to-read-write-data-v2?view=azureml-api-2&tabs=cli
 
 # %%
 # Load dataset from ubyte and ubyte.gz files
