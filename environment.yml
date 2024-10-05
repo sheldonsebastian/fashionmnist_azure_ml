@@ -13,7 +13,6 @@ dependencies:
   - decorator=5.1.1=pyhd8ed1ab_0
   - exceptiongroup=1.2.2=pyhd8ed1ab_0
   - executing=2.1.0=pyhd8ed1ab_0
-  - importlib-metadata=8.5.0=pyha770c72_0
   - ipykernel=6.29.5=pyh3099207_0
   - ipython=8.28.0=pyh707e725_0
   - jedi=0.19.1=pyhd8ed1ab_0
@@ -56,8 +55,6 @@ dependencies:
   - tk=8.6.14=h39e8969_0
   - tornado=6.4.1=py310ha75aee5_1
   - traitlets=5.14.3=pyhd8ed1ab_0
-  - typing_extensions=4.12.2=pyha770c72_0
-  - tzdata=2024b=h04d1e81_0
   - wcwidth=0.2.13=pyhd8ed1ab_0
   - wheel=0.44.0=py310h06a4308_0
   - xz=5.4.6=h5eee18b_1
@@ -67,6 +64,8 @@ dependencies:
   - pip:
       - --extra-index-url https://download.pytorch.org/whl/cu121
       - adal==1.2.7
+      - alembic==1.13.3
+      - aniso8601==9.0.1
       - argcomplete==3.5.0
       - attrs==24.2.0
       - azure-ai-ml==1.20.0
@@ -81,44 +80,68 @@ dependencies:
       - azure-mgmt-network==26.0.0
       - azure-mgmt-resource==23.1.1
       - azure-mgmt-storage==21.2.1
-      - azure-storage-blob==12.23.1
-      - azure-storage-file-datalake==12.17.0
+      - azure-storage-blob==12.19.0
+      - azure-storage-file-datalake==12.14.0
       - azure-storage-file-share==12.18.0
       - azureml-core==1.57.0.post3
       - azureml-dataprep==5.1.6
       - azureml-dataprep-native==41.0.0
       - azureml-dataprep-rslex==2.22.4
-      - --extra-index-url https://download.pytorch.org/whl/cu121
       - azureml-fsspec==1.3.1
+      - azureml-mlflow==1.57.0.post1
       - backports-tempfile==1.0
       - backports-weakref==1.0.post1
       - bcrypt==4.2.0
+      - blinker==1.8.2
       - cachetools==5.5.0
       - certifi==2024.8.30
       - cffi==1.17.1
       - charset-normalizer==3.3.2
+      - click==8.1.7
       - cloudpickle==2.2.1
       - colorama==0.4.6
       - contextlib2==21.6.0
+      - contourpy==1.3.0
       - cryptography==43.0.1
+      - cycler==0.12.1
+      - databricks-sdk==0.33.0
+      - deprecated==1.2.14
       - docker==7.1.0
       - filelock==3.13.1
+      - flask==3.0.3
+      - fonttools==4.54.1
       - fsspec==2023.10.0
+      - gitdb==4.0.11
+      - gitpython==3.1.43
       - google-api-core==2.20.0
       - google-auth==2.35.0
       - googleapis-common-protos==1.65.0
+      - graphene==3.3
+      - graphql-core==3.2.4
+      - graphql-relay==3.2.0
+      - greenlet==3.1.1
+      - gunicorn==23.0.0
       - humanfriendly==10.0
       - idna==3.10
+      - importlib-metadata==8.4.0
       - isodate==0.6.1
+      - itsdangerous==2.2.0
       - jeepney==0.8.0
       - jinja2==3.1.3
       - jmespath==1.0.1
+      - joblib==1.4.2
       - jsonpickle==3.3.0
       - jsonschema==4.23.0
       - jsonschema-specifications==2023.12.1
+      - kiwisolver==1.4.7
       - knack==0.11.0
+      - mako==1.3.5
+      - markdown==3.7
       - markupsafe==2.1.5
       - marshmallow==3.22.0
+      - matplotlib==3.9.2
+      - mlflow==2.16.2
+      - mlflow-skinny==2.16.2
       - mpmath==1.3.0
       - msal==1.31.0
       - msal-extensions==1.2.0
@@ -144,6 +167,10 @@ dependencies:
       - opencensus-context==0.1.3
       - opencensus-ext-azure==1.1.13
       - opencensus-ext-logging==0.1.1
+      - opentelemetry-api==1.27.0
+      - opentelemetry-sdk==1.27.0
+      - opentelemetry-semantic-conventions==0.48b0
+      - pandas==2.2.3
       - paramiko==3.5.0
       - pathspec==0.12.1
       - pillow==10.2.0
@@ -151,6 +178,7 @@ dependencies:
       - portalocker==2.10.1
       - proto-plus==1.24.0
       - protobuf==5.28.2
+      - pyarrow==17.0.0
       - pyasn1==0.6.1
       - pyasn1-modules==0.4.1
       - pycparser==2.22
@@ -158,6 +186,7 @@ dependencies:
       - pyjwt==2.9.0
       - pynacl==1.5.0
       - pyopenssl==24.2.1
+      - pyparsing==3.1.4
       - pysocks==1.7.1
       - python-dateutil==2.9.0.post0
       - python-dotenv==1.0.1
@@ -168,15 +197,24 @@ dependencies:
       - requests-oauthlib==2.0.0
       - rpds-py==0.20.0
       - rsa==4.9
+      - scikit-learn==1.5.2
+      - scipy==1.14.1
       - secretstorage==3.3.3
+      - smmap==5.0.1
+      - sqlalchemy==2.0.35
+      - sqlparse==0.5.1
       - strictyaml==1.7.3
       - sympy==1.12
       - tabulate==0.9.0
+      - threadpoolctl==3.5.0
       - torch==2.2.2+cu121
       - torchaudio==2.2.2+cu121
       - torchvision==0.17.2+cu121
       - tqdm==4.66.5
       - triton==2.2.0
       - typing-extensions==4.9.0
+      - tzdata==2024.2
       - urllib3==2.2.3
+      - werkzeug==3.0.4
+      - wrapt==1.16.0
 prefix: /home/sheldon/miniconda3/envs/mmrotate

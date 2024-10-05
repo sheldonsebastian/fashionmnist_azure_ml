@@ -34,7 +34,7 @@ print(ws.location, ":", ws.resource_group)
 
 # %%
 job = command(
-    code="./fashion_mnist/src",  # location of source code
+    code="src",  # location of source code
     command="python train.py",
     environment="custom-acpt-env@latest",
     display_name="fashion_mnist_job",
