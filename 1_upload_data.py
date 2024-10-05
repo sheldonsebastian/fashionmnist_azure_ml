@@ -59,3 +59,4 @@ data_asset = ml_client.data.get(name="fashion-mnist", version=v1)
 print(f"Data asset: {data_asset.name}, version: {data_asset.version}")
 
 # %%
+# TODO download data
