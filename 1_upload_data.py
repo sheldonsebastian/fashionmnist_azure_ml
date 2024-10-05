@@ -31,7 +31,7 @@ data_path = "data"
 
 # %%
 # set the version number of the data asset
-v1 = "initial"
+v1 = "latest"
 
 # %%
 my_data = Data(
@@ -57,6 +57,3 @@ except:
 # consuming the data
 data_asset = ml_client.data.get(name="fashion-mnist", version=v1)
 print(f"Data asset: {data_asset.name}, version: {data_asset.version}")
-
-# %%
-# TODO download data
