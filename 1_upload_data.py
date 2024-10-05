@@ -9,6 +9,7 @@ from azure.ai.ml.constants import AssetTypes
 from dotenv import load_dotenv
 import os
 
+
 # %%
 if os.path.exists("configs.env"):
     load_dotenv("configs.env")
@@ -31,7 +32,7 @@ data_path = "data"
 
 # %%
 # set the version number of the data asset
-v1 = "initial"
+v1 = "latest"
 
 # %%
 my_data = Data(
@@ -59,4 +60,26 @@ data_asset = ml_client.data.get(name="fashion-mnist", version=v1)
 print(f"Data asset: {data_asset.name}, version: {data_asset.version}")
 
 # %%
-# TODO download data
+# https://learn.microsoft.com/en-us/azure/machine-learning/how-to-access-data-interactive?view=azureml-api-2&tabs=datastore
+datastore_path = data_asset.path
+
+# %%
+from azureml.fsspec import AzureMachineLearningFileSystem
+
+# %%
+# instantiate file system using following URI
+fs = AzureMachineLearningFileSystem(datastore_path)
+
+# %%
+# list folders/files in datastore 'datastorename'
+found_files = fs.ls()
+
+# %%
+print(found_files)
+
+# %%
+# download all files into data2 folder
+for file in found_files:
+    fs.download(file, f"downloaded_data")
+
+# %%
