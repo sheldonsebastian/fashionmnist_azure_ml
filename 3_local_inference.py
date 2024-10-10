@@ -6,7 +6,7 @@ import numpy as np
 import torch.nn as nn
 
 # %%
-SAVED_MODEL_PATH = "fashion_mnist/saved_models/fashion_mnist_model.pth"
+SAVED_MODEL_PATH = "model.pth"
 
 
 # %%
@@ -45,14 +45,12 @@ class SimpleNN(nn.Module):
 
 
 # %%
-# read saved model checkpoints
-model = SimpleNN()
-model.load_state_dict(torch.load(SAVED_MODEL_PATH))
+model = torch.load(SAVED_MODEL_PATH)
 model.eval()
 
 # %%
 # Load Fashion MNIST dataset
-image, label = load_data(r"fashion_mnist/data", train=False)
+image, label = load_data(r"src/data", train=False)
 
 # %% make predictions
 # Convert images to tensor
@@ -71,3 +69,5 @@ for i in range(10):
 
 # %%
 print("Finito")
+
+# %%
