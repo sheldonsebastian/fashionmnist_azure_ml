@@ -1,4 +1,4 @@
-name: mmrotate
+name: fashion-mnist-azure
 channels:
   - conda-forge
   - defaults
@@ -217,4 +217,3 @@ dependencies:
       - urllib3==2.2.3
       - werkzeug==3.0.4
       - wrapt==1.16.0
-prefix: /home/sheldon/miniconda3/envs/mmrotate
