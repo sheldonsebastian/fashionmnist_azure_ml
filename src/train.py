@@ -25,18 +25,20 @@ mlflow.autolog()
 if os.path.exists("configs.env"):
     load_dotenv("configs.env")
 
+    # authenticate
+    credential = DefaultAzureCredential()
 
-# authenticate
-credential = DefaultAzureCredential()
+    # Get a handle to the workspace
+    ml_client = MLClient(
+        credential=credential,
+        subscription_id=os.getenv("SUBSCRIPTION_ID"),
+        resource_group_name=os.getenv("RESOURCE_GROUP"),
+        workspace_name=os.getenv("WORKSPACE_NAME"),
+    )
+else:
+    credential = DefaultAzureCredential()
+    ml_client = MLClient(credential=credential)
 
-
-# Get a handle to the workspace
-ml_client = MLClient(
-    credential=credential,
-    subscription_id=os.getenv("SUBSCRIPTION_ID"),
-    resource_group_name=os.getenv("RESOURCE_GROUP"),
-    workspace_name=os.getenv("WORKSPACE_NAME"),
-)
 
 print("GPU found:", torch.cuda.is_available())
 
@@ -101,29 +103,9 @@ class FashionMNISTFromUbyte(VisionDataset):
         return img, target
 
 
-# download the dataset
-def download_data(ml_client):
-    data_asset = ml_client.data.get(name="fashion-mnist", version="latest")
-
-    # instantiate file system using following URI
-    fs = AzureMachineLearningFileSystem(data_asset.path)
-
-    # list folders/files in datastore 'datastorename'
-    found_files = fs.ls()
-
-    # download all files into data2 folder
-    DATA_ROOT_DIR = "data"
-    if not os.path.exists(DATA_ROOT_DIR):
-        for file in found_files:
-            fs.download(file, DATA_ROOT_DIR)
-    return DATA_ROOT_DIR
-
-
-DATA_ROOT_DIR = download_data(ml_client)
-
 # Load dataset from ubyte and ubyte.gz files
 train_dataset = FashionMNISTFromUbyte(
-    root=DATA_ROOT_DIR,
+    root="data",
     transform=transform,
 )
 

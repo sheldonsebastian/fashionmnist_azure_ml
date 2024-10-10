@@ -32,7 +32,7 @@ data_path = "data"
 
 # %%
 # set the version number of the data asset
-v1 = "latest"
+v1 = "v2"
 
 # %%
 my_data = Data(
