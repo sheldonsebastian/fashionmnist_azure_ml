@@ -4,6 +4,7 @@ from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 import os
 from azure.ai.ml import command
+from azure.ai.ml.entities import JobResourceConfiguration
 
 # %%
 if os.path.exists("configs.env"):
@@ -38,6 +39,9 @@ job = command(
     command="python train.py",
     environment="custom-acpt-env@latest",
     display_name="fashion_mnist_job",
+    resources=JobResourceConfiguration(
+        instance_type="Standard_NC8as_T4_v3", instance_count=1
+    ),
 )
 
 # %%
